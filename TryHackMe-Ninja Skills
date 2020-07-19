@@ -1,0 +1,40 @@
+Most of the chellenges can be completed by changing the following one liner:
+
+sh> cmmd=' ';for name in $(cat names);do echo $name $($cmmd `find / -name $name 2>/dev/null`);done
+
+It will execute what you put in "cmmd" in each file.
+If you want you can add a grep at the end so it only displays the correct one, but I liked the long list to I used the first option.
+
+sh> cmmd=' ';condition=' ';for name in $(cat names);do echo $name $($cmmd `find / -name $name 2>/dev/null`) | grep $condition;done
+
+with "names" being all the files except "bny0":
+8V2L
+c4ZX
+D8B3
+FHl1
+oiMO
+PFbD
+rmfX
+SRSq
+uqyw
+v2Vb
+X1Uy 
+
+bny0 causes problems that I'm too lazy to troubleshoot ;)
+
+
+
+#1- cmmd='ls -l '
+
+#2- This ones requires us the use regex to find the IP:
+  sh> for name in $(cat names);do echo $name $(cat `find / -name $name 2>/dev/null` | grep -G '[*\.*\.*\.*\.*]');done
+
+#3- cmmd='sha1sum '
+
+#4- cmmd='wc -l '
+  All the files will have the same line count, except the correct one (bny0)!
+  
+#5- By doing "cat /etc/passwd" we can find which use has the UID 502.
+  Now just set cmmd='ls -l ' and see which file that user owns!
+ 
+#6- cmmd='ls -l' and check which has -rwxrwxr-x
