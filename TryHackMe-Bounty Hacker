@@ -9,7 +9,6 @@ Privesc                                   60
 
 Scanning -> nmap -sS -T4 -A -o scan MACHINE_IP
 
-# Nmap 7.80 scan initiated Tue Aug  4 22:58:34 2020 as: nmap -sS -T4 -A -o scan MACHINE_IP
 Nmap scan report for MACHINE_IP
 Host is up (0.36s latency).
 Not shown: 967 filtered ports, 30 closed ports
@@ -30,6 +29,7 @@ PORT   STATE SERVICE VERSION
 <snip>
 
 
+
 Download files using Anonymous access:
 kali@kali:~/thm$ ftp MACHINE_IP
 Connected to MACHINE_IP.
@@ -41,9 +41,9 @@ mget locks.txt? y
 mget task.txt? y
 
 
-
 task.txt gives us a username (lin)
 locks.txt contains a wordlist
+
 
 
 
